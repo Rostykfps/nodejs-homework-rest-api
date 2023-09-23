@@ -16,9 +16,6 @@ const validateBody = schema => {
 
     const { error } = schema.validate(req.body);
     if (error) {
-      if (req.route.path === '/register' || req.route.path === '/login') {
-        next(HttpError(400, 'Помилка від Joi або іншої бібліотеки валідації'));
-      }
       next(HttpError(400, error.details[0].message));
     }
     next();

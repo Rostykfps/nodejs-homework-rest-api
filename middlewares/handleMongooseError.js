@@ -5,10 +5,6 @@ const handleMongooseError = (error, data, next) => {
 
   error.status = status;
 
-  if (name === 'ValidationError') {
-    error.message = 'Помилка від Joi або іншої бібліотеки валідації';
-  }
-
   next();
 };
 
