@@ -3,7 +3,7 @@ const { HttpError } = require('../helpers');
 const validateBody = schema => {
   const func = (req, res, next) => {
     if (!Object.keys(req.body).length) {
-      if (req.method === 'PATCH' && req.originalUrl === '/api/users') {
+      if (req.method === 'PATCH' && req.originalUrl === '/users') {
         next(HttpError(400, 'missing field subscription'));
       }
 
