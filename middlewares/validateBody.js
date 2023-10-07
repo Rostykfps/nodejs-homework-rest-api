@@ -11,6 +11,10 @@ const validateBody = schema => {
         next(HttpError(400, 'missing field favorite'));
       }
 
+      if (req.method === 'POST' && req.originalUrl === '/users/verify') {
+        next(HttpError(400, 'missing required field email'));
+      }
+
       next(HttpError(400, 'missing fields'));
     }
 
